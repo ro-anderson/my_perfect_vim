@@ -1,6 +1,7 @@
+
 "  my .vimrc                        ###################################
 "  by https://github.com/didier-rda ###################################
-"                                   ###################################
+"  last update: 12/20               ###################################
 "######################################################################
 
 "  set package mannager config
@@ -9,15 +10,20 @@ execute pathogen#infect()
 "  set vim configs
 set nu
 set mouse=a
-colorscheme darkblue
+
+"  set color specifications
+colorscheme OceanicNext
 set ttymouse=xterm2
 
 "  list of plugins:
 "  	vim-sensible: https://github.com/tpope/vim-sensible
-"	vim-autopairs: https://github.com/jiangmiao/auto-pairs
+"	vim-autopairs: https://github.com/jiangmiao/aiuto-pairs
 "	vim-nerdtree: https://github.com/preservim/nerdtree
 "	vim-nerdtree-git: https://github.com/Xuyuanp/nerdtree-git-plugin
 "	vim-slime: https://github.com/jpalardy/vim-slime 
+"	indentLine https://github.com/Yggdroot/indentLine
+"
+"	colorscheme: https://github.com/mhartington/oceanic-next 
 ""
 ""  set nerdtree config
 call pathogen#infect()
@@ -28,7 +34,7 @@ filetype plugin indent on
 map <C-n> :NERDTreeToggle<CR>
 
 "  define nerdtree git symbols
-let g:NERDTreeIndicatorMapCustom = {
+"  let g:NERDTreeGitStatusIndicatorMapCustomii = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -44,12 +50,5 @@ let g:NERDTreeIndicatorMapCustom = {
 "  set vim-slime to run terminal with ctl cc
 let g:slime_target = "vimterminal"
 
-"  kit vim config
-
-"To have the preview window automatically closed once a completion has been
-"  inserted:
-let g:kite_tab_complete=1
-"set completeopt+=menuone   " show the popup menu even when there is only 1 match
-"set completeopt+=noinsert  " don't insert any text until user chooses a match
-"set completeopt-=longest   " don't insert the longest common text
-
+" set type of line 
+let g:indentLine_char = '⎸'
