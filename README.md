@@ -12,3 +12,5 @@ save the file in the path (on linux):
 reset the terminal or execute:
 
 `source / home / .vimrc`
+
+![plot](./vim-example.png)
