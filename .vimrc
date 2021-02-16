@@ -1,8 +1,15 @@
 
 "  my .vimrc                        ###################################
 "  by https://github.com/didier-rda ###################################
-"  last update: 12/20               ###################################
+"  last update: 02/21               ###################################
 "######################################################################
+
+
+"  first install the package manager of your choice. It will be needed
+"  to install the other packages. I like the pathogen, and this .vimrc
+"  is configured based on it.
+"  how to install pathogen: https://github.com/tpope/vim-pathogen
+
 
 "  set package mannager config
 execute pathogen#infect()
