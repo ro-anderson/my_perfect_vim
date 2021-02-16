@@ -13,6 +13,7 @@ reset the terminal or execute:
 
 `source / home / .vimrc`
 
-Your vim should look like this:
+- Your vim should look like this:
+
 
 ![plot](./vim-example.png)
