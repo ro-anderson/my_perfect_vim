@@ -1,0 +1,43 @@
+"  set vim configs
+
+
+set nu
+set mouse=a
+
+" adjust mouse to windows
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
+" set tabstop=4
+set clipboard=unnamed
+set ttymouse=xterm2
+" set backspace=indent,eol,start
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+
+
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/tpope/vim-sensible'
+Plug 'https://github.com/jiangmiao/auto-pairs'
+Plug 'https://github.com/jpalardy/vim-slime'
+Plug 'https://github.com/elzr/vim-json'
+Plug 'https://github.com/stephpy/vim-yaml'
+"Plug 'dracula/vim', { 'as': 'dracula'  }
+call plug#end()
+" Set type of line 
+" let g:indentLine_char = ' 
+" let g:indentLine_char = '| '
+
+"  set vim-slime to run terminal with ctl cc
+let g:slime_target = "vimterminal"
+
+" colorscheme
+colorscheme elflord 
+" dracula
+i
