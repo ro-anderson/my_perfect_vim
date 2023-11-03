@@ -12,8 +12,12 @@
  
 set nu
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+    set ttymouse=xterm2
+endif
 set clipboard=unnamed
+
+set nohlsearch
 
 " Initialize plugin system
 call plug#begin('~/.vim/plugged')
@@ -25,6 +29,10 @@ Plug 'https://github.com/elzr/vim-json'
 Plug 'https://github.com/stephpy/vim-yaml'
 Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/mhartington/oceanic-next'
+Plug 'https://github.com/othree/xml.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'ekalinin/Dockerfile.vim'
+Plug'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
