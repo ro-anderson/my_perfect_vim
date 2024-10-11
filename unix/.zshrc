@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -89,46 +89,69 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=python3
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/roanderson/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/roanderson/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/roanderson/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/roanderson/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-# Created by `pipx` on 2022-08-15 15:17:11
-export PATH="$PATH:/Users/roanderson/.local/bin"
-export PATH_ROZETTEL="/Users/roanderson/Library/Mobile Documents/iCloud~md~obsidian/Documents/rozettle"
-alias cdroz='cd $PATH_ROZETTEL'
-
-fpath+=~/.zfunc
-autoload -Uz compinit && compinit
+# set tmux
 alias vim="nvim"
 alias vi="nvim"
+
+# duckdb
+alias ddb="duckdb"
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
 
-alias cpout='xclip -sel c'
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/rodrigoanderson/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/rodrigoanderson/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/rodrigoanderson/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/rodrigoanderson/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/Users/rodrigoanderson/.local/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rodrigoanderson/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rodrigoanderson/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rodrigoanderson/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rodrigoanderson/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload bashcompinit && bashcompinit
+source $(brew --prefix)/etc/bash_completion.d/az
+
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+
+# Start the SSH agent if it's not already running and add SSH keys for GitHub access
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
+# Add personal GitHub SSH key
+ssh-add -l | grep -q "id_ed25519_personal_github" || ssh-add ~/.ssh/id_ed25519_personal_github > /dev/null 2>&1
+
+# Add professional GitHub SSH key
+ssh-add -l | grep -q "id_ed25519_invillia_github" || ssh-add ~/.ssh/id_ed25519_invillia_github > /dev/null 2>&1
+
+export PATH="/Users/rodrigoanderson/.local/bin:$PATH"
+export REQUESTS_CA_BUNDLE="/Users/rodrigoanderson/Library/Caches/pypoetry/virtualenvs/ta-bot-backend-04KQ8mwt-py3.12/lib/python3.12/site-packages/certifi/cacert.pem"
